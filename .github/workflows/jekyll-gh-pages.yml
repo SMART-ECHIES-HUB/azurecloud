@@ -28,6 +28,20 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      # 🟢 ADD THIS: Setup Node.js
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # 🟢 ADD THIS: Install npm dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # 🟢 OPTIONAL: Run build (if you have one)
+      - name: Build assets
+        run: npm run build
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Build with Jekyll
